@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="SampleTheme" parent="@android:style/Theme">
+        <item name="calendarViewStyle">@style/Widget.Holo.CalendarView</item>
+    </style>
+
+    <style name="SampleTheme.Light" parent="@android:style/ThemeLight">
+        <item name="calendarViewStyle">@style/Widget.Holo.Light.CalendarView</item>
+    </style>
+</resources>

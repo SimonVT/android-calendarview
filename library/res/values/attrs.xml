@@ -1,0 +1,40 @@
+<resources>
+
+    <!-- The CalendarView style. -->
+    <attr name="calendarViewStyle" format="reference" />
+
+    <declare-styleable name="CalendarView">
+        <!-- The first day of week according to {@link java.util.Calendar}. -->
+        <attr name="android:firstDayOfWeek" />
+        <!-- Whether do show week numbers. -->
+        <attr name="android:showWeekNumber" />
+        <!-- The minimal date shown by this calendar view in mm/dd/yyyy format. -->
+        <attr name="android:minDate" />
+        <!-- The minimal date shown by this calendar view in mm/dd/yyyy format. -->
+        <attr name="android:maxDate" />
+        <!-- The number of weeks to be shown. -->
+        <attr name="android:shownWeekCount" />
+        <!-- The background color for the selected week. -->
+        <attr name="android:selectedWeekBackgroundColor" />
+        <!-- The color for the dates of the selected month. -->
+        <attr name="android:focusedMonthDateColor" />
+        <!-- The color for the dates of an unfocused month. -->
+        <attr name="android:unfocusedMonthDateColor" />
+        <!-- The color for the week numbers. -->
+        <attr name="android:weekNumberColor" />
+        <!-- The color for the sepatator line between weeks. -->
+        <attr name="android:weekSeparatorLineColor" />
+        <!-- Drawable for the vertical bar shown at the beggining and at the end of a selected date. -->
+        <attr name="android:selectedDateVerticalBar" />
+        <!-- The text appearance for the week day abbreviation of the calendar header. -->
+        <attr name="android:weekDayTextAppearance" />
+        <!-- The text appearance for the calendar dates. -->
+        <attr name="android:dateTextAppearance" />
+    </declare-styleable>
+
+    <!-- Framework styleables are not public. -->
+    <declare-styleable name="TextAppearanceCompatStyleable">
+        <attr name="android:textSize" />
+    </declare-styleable>
+
+</resources>
