@@ -65,6 +65,9 @@ public class CalendarListView extends ListView {
         }
     }
 
+    /**
+     * Based on Chris Banes (https://github.com/chrisbanes) PullToRefreshListView.
+     */
     final class SmoothScrollRunnable implements Runnable {
 
         static final int ANIMATION_FPS = 1000 / 60;
