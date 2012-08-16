@@ -1,0 +1,6 @@
+<resources>
+
+    <style name="CalendarTheme" parent="@android:style/Theme">
+        <item name="calendarViewStyle">@style/Widget.Holo.CalendarView</item>
+    </style>
+</resources>
