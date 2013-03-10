@@ -5,39 +5,40 @@
     </style>
 
     <style name="Widget.CalendarView">
-        <item name="android:showWeekNumber">true</item>
-        <item name="android:firstDayOfWeek">1</item>
-        <item name="android:minDate">01/01/1900</item>
-        <item name="android:maxDate">12/31/2100</item>
-        <item name="android:shownWeekCount">6</item>
-        <item name="android:selectedWeekBackgroundColor">#330099FF</item>
-        <item name="android:focusedMonthDateColor">#FFFFFFFF</item>
-        <item name="android:unfocusedMonthDateColor">#66FFFFFF</item>
-        <item name="android:weekNumberColor">#33FFFFFF</item>
-        <item name="android:weekSeparatorLineColor">#19FFFFFF</item>
-        <item name="android:selectedDateVerticalBar">@drawable/day_picker_week_view_dayline_holo</item>
-        <item name="android:weekDayTextAppearance">@style/TextAppearance.Small.CalendarViewWeekDayView</item>
-        <item name="android:dateTextAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="cv_showWeekNumber">true</item>
+        <item name="cv_firstDayOfWeek">1</item>
+        <item name="cv_minDate">01/01/1900</item>
+        <item name="cv_maxDate">12/31/2100</item>
+        <item name="cv_shownWeekCount">6</item>
+        <item name="cv_selectedWeekBackgroundColor">#330099FF</item>
+        <item name="cv_focusedMonthDateColor">#FFFFFFFF</item>
+        <item name="cv_unfocusedMonthDateColor">#66FFFFFF</item>
+        <item name="cv_weekNumberColor">#33FFFFFF</item>
+        <item name="cv_weekSeparatorLineColor">#19FFFFFF</item>
+        <item name="cv_selectedDateVerticalBar">@drawable/day_picker_week_view_dayline_holo</item>
+        <item name="cv_weekDayTextAppearance">@style/TextAppearance.Small.CalendarViewWeekDayView</item>
+        <item name="cv_dateTextAppearance">?android:attr/textAppearanceSmall</item>
     </style>
 
     <style name="Widget.Holo.CalendarView" parent="Widget.CalendarView">
-        <item name="android:selectedWeekBackgroundColor">#330099FF</item>
-        <item name="android:focusedMonthDateColor">#FFFFFFFF</item>
-        <item name="android:unfocusedMonthDateColor">#66FFFFFF</item>
-        <item name="android:weekNumberColor">#33FFFFFF</item>
-        <item name="android:weekSeparatorLineColor">#19FFFFFF</item>
-        <item name="android:selectedDateVerticalBar">@drawable/day_picker_week_view_dayline_holo</item>
-        <item name="android:weekDayTextAppearance">@style/TextAppearance.Holo.CalendarViewWeekDayView</item>
+        <item name="cv_selectedWeekBackgroundColor">#330099FF</item>
+        <item name="cv_focusedMonthDateColor">#FFFFFFFF</item>
+        <item name="cv_unfocusedMonthDateColor">#66FFFFFF</item>
+        <item name="cv_weekNumberColor">#33FFFFFF</item>
+        <item name="cv_weekSeparatorLineColor">#19FFFFFF</item>
+        <item name="cv_selectedDateVerticalBar">@drawable/day_picker_week_view_dayline_holo</item>
+        <item name="cv_weekDayTextAppearance">@style/TextAppearance.Holo.CalendarViewWeekDayView</item>
+        <item name="cv_dividerHorizontal">@drawable/list_divider_holo_dark</item>
     </style>
 
     <style name="Widget.Holo.Light.CalendarView" parent="Widget.CalendarView">
-        <item name="android:selectedWeekBackgroundColor">#330066ff</item>
-        <item name="android:focusedMonthDateColor">#FF000000</item>
-        <item name="android:unfocusedMonthDateColor">#7F08002B</item>
-        <item name="android:weekNumberColor">#7F080021</item>
-        <item name="android:weekSeparatorLineColor">#7F08002A</item>
-        <item name="android:weekDayTextAppearance">@style/TextAppearance.Holo.Light.CalendarViewWeekDayView
-        </item>
+        <item name="cv_selectedWeekBackgroundColor">#330066ff</item>
+        <item name="cv_focusedMonthDateColor">#FF000000</item>
+        <item name="cv_unfocusedMonthDateColor">#7F08002B</item>
+        <item name="cv_weekNumberColor">#7F080021</item>
+        <item name="cv_weekSeparatorLineColor">#7F08002A</item>
+        <item name="cv_weekDayTextAppearance">@style/TextAppearance.Holo.Light.CalendarViewWeekDayView</item>
+        <item name="cv_dividerHorizontal">@drawable/list_divider_holo_light</item>
     </style>
 
     <style name="TextAppearance.Small.CalendarViewWeekDayView" parent="@android:style/TextAppearance.Small">

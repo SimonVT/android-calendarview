@@ -5,31 +5,33 @@
 
     <declare-styleable name="CalendarView">
         <!-- The first day of week according to {@link java.util.Calendar}. -->
-        <attr name="android:firstDayOfWeek" />
+        <attr name="cv_firstDayOfWeek" format="integer" />
         <!-- Whether do show week numbers. -->
-        <attr name="android:showWeekNumber" />
+        <attr name="cv_showWeekNumber" format="boolean" />
         <!-- The minimal date shown by this calendar view in mm/dd/yyyy format. -->
-        <attr name="android:minDate" />
+        <attr name="cv_minDate" format="string" />
         <!-- The minimal date shown by this calendar view in mm/dd/yyyy format. -->
-        <attr name="android:maxDate" />
+        <attr name="cv_maxDate" format="string" />
         <!-- The number of weeks to be shown. -->
-        <attr name="android:shownWeekCount" />
+        <attr name="cv_shownWeekCount" format="integer"/>
         <!-- The background color for the selected week. -->
-        <attr name="android:selectedWeekBackgroundColor" />
-        <!-- The color for the dates of the selected month. -->
-        <attr name="android:focusedMonthDateColor" />
+        <attr name="cv_selectedWeekBackgroundColor" format="color|reference" />
+        <!-- The color for the dates of the focused month. -->
+        <attr name="cv_focusedMonthDateColor" format="color|reference" />
         <!-- The color for the dates of an unfocused month. -->
-        <attr name="android:unfocusedMonthDateColor" />
+        <attr name="cv_unfocusedMonthDateColor" format="color|reference" />
         <!-- The color for the week numbers. -->
-        <attr name="android:weekNumberColor" />
-        <!-- The color for the sepatator line between weeks. -->
-        <attr name="android:weekSeparatorLineColor" />
-        <!-- Drawable for the vertical bar shown at the beggining and at the end of a selected date. -->
-        <attr name="android:selectedDateVerticalBar" />
+        <attr name="cv_weekNumberColor" format="color|reference" />
+        <!-- The color for the separator line between weeks. -->
+        <attr name="cv_weekSeparatorLineColor" format="color|reference" />
+        <!-- Drawable for the vertical bar shown at the beginning and at the end of the selected date. -->
+        <attr name="cv_selectedDateVerticalBar" format="reference" />
         <!-- The text appearance for the week day abbreviation of the calendar header. -->
-        <attr name="android:weekDayTextAppearance" />
+        <attr name="cv_weekDayTextAppearance" format="reference" />
         <!-- The text appearance for the calendar dates. -->
-        <attr name="android:dateTextAppearance" />
+        <attr name="cv_dateTextAppearance" format="reference" />
+
+        <attr name="cv_dividerHorizontal" format="reference" />
     </declare-styleable>
 
     <!-- Framework styleables are not public. -->

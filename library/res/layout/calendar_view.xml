@@ -22,7 +22,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true" >
 
-    <TextView android:id="@+id/month_name"
+    <TextView android:id="@+id/cv_month_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -30,13 +30,13 @@
         android:paddingBottom="10dip"
         style="@android:style/TextAppearance.Medium" />
 
-    <LinearLayout android:id="@+id/day_names"
+    <LinearLayout android:id="@+id/cv_day_names"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="6dip"
-        android:layout_marginRight="2dip"
         android:layout_marginLeft="2dip"
+        android:layout_marginRight="2dip"
         android:gravity="center" >
 
         <TextView android:layout_width="0dip"
@@ -82,13 +82,14 @@
 
     </LinearLayout>
 
-    <ImageView android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/cv_divider"
+        android:layout_width="match_parent"
         android:layout_height="1dip"
         android:scaleType="fitXY"
-        android:gravity="fill_horizontal"
-        android:src="?android:attr/listDivider" />
+        android:gravity="fill_horizontal" />
 
-    <net.simonvt.widget.CalendarListView android:id="@android:id/list"
+    <ListView android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:drawSelectorOnTop="false"

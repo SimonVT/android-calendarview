@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:gravity="center">
 
-    <net.simonvt.widget.CalendarView
+    <net.simonvt.calendarview.CalendarView
         android:layout_width="245dip"
         android:layout_height="280dip" />
 </LinearLayout>
