@@ -1006,6 +1006,17 @@ public class CalendarView extends FrameLayout {
     }
 
     /**
+     * @return True if the weeks of <code>firstDate</code> and <code>secondDate
+     * </code> are the same.
+     * Used in WeeksAdapter.init()
+     * @author Brenden K.
+     */
+    private boolean isSameWeek(Calendar firstDate, Calendar secondDate) {
+        return (firstDate.get(Calendar.WEEK_OF_YEAR) == secondDate.get(Calendar.WEEK_OF_YEAR)
+                && firstDate.get(Calendar.YEAR) == secondDate.get(Calendar.YEAR));
+    }
+
+    /**
      * Creates a new adapter if necessary and sets up its parameters.
      */
     private void setUpAdapter() {
@@ -1211,7 +1222,17 @@ public class CalendarView extends FrameLayout {
         // the top of the screen when scrolling down.
         int offset = child.getBottom() < mWeekMinVisibleHeight ? 1 : 0;
         if (mIsScrollingUp) {
-            child = (WeekView) view.getChildAt(SCROLL_HYST_WEEKS + offset);
+            // Fixes crashes that occur if the spanned amount of time between 
+            // the min and max dates is either one or two weeks. If the spanned
+            // amount of time is over two weeks, the original behavior occurs.
+            // -Brenden K.
+            if(mAdapter.getCount() == 1) {
+                child = (WeekView) view.getChildAt(0);
+            } else if(mAdapter.getCount() == 2) {
+                child = (WeekView) view.getChildAt(1);
+            } else { // Original behavior
+                child = (WeekView) view.getChildAt(SCROLL_HYST_WEEKS + offset);
+            }
         } else if (offset != 0) {
             child = (WeekView) view.getChildAt(offset);
         }
@@ -1363,8 +1384,20 @@ public class CalendarView extends FrameLayout {
         private void init() {
             mSelectedWeek = getWeeksSinceMinDate(mSelectedDate);
             mTotalWeekCount = getWeeksSinceMinDate(mMaxDate);
-            if (mMinDate.get(Calendar.DAY_OF_WEEK) != mFirstDayOfWeek
-                    || mMaxDate.get(Calendar.DAY_OF_WEEK) != mFirstDayOfWeek) {
+            // Changed to ensure proper number of WeekViews are drawn for circumstances where
+            // getWeeksSinceMinDate(Calendar date) returns a number that is short by one.
+            // Otherwise even though the onScroll() method doesn't cause a crash, we still don't
+            // draw all of the weeks we need.
+            // -Brenden K.
+            if (!(mMinDate.get(Calendar.DAY_OF_WEEK) == mFirstDayOfWeek)) {
+                // Ensures we add a week so long as the min date isn't the first day of the week
+                mTotalWeekCount++;
+            } else if (isSameWeek(mMinDate, mMaxDate)) {
+                // Ensures we add a week if the min and max are in the same week
+                mTotalWeekCount++;
+            } else if(mMinDate.get(Calendar.DAY_OF_WEEK) == mFirstDayOfWeek 
+                      && mMaxDate.get(Calendar.DAY_OF_WEEK) == mFirstDayOfWeek) {
+                // Ensures we add a week if both the min and max date are the first day of a week
                 mTotalWeekCount++;
             }
         }
@@ -1452,7 +1485,12 @@ public class CalendarView extends FrameLayout {
                 }
                 // it is possible that the touched day is outside the valid range
                 // we draw whole weeks but range end can fall not on the week end
-                if (mTempDate.before(mMinDate) || mTempDate.after(mMaxDate)) {
+                
+                // Fix so that our edge case can be selected (See WeekView.init()
+                // for more details about the edge case)
+                // -Brenden K.
+                if ((mTempDate.before(mMinDate) || mTempDate.after(mMaxDate)) 
+                    && !(isSameDate(mTempDate, mMaxDate))) {
                     return true;
                 }
                 onDateTapped(mTempDate);
@@ -1599,7 +1637,14 @@ public class CalendarView extends FrameLayout {
                 mHasFocusedDay |= isFocusedDay;
                 mHasUnfocusedDay &= !isFocusedDay;
                 // do not draw dates outside the valid range to avoid user confusion
-                if (mTempDate.before(mMinDate) || mTempDate.after(mMaxDate)) {
+                
+                // This is our edge case. See the extended description for this commit
+                // for an explanation, as it is rather long. The modification made to
+                // the boolean expression in WeeksAdapter.onTouch() was done so that 
+                // it matched the boolean expression used below.
+                // -Brenden K.
+                if ((mTempDate.before(mMinDate) || mTempDate.after(mMaxDate)) 
+                    && !(isSameDate(mTempDate, mMaxDate))) {
                     mDayNumbers[i] = "";
                 } else {
                     mDayNumbers[i] = String.format(Locale.getDefault(), "%d",
