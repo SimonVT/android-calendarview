@@ -1,3 +1,5 @@
+**This library is provided as-is and is not under active development**
+
 Android 4.0 CalendarView backported to 2.2
 Probably has to be built against API level 15  
   
